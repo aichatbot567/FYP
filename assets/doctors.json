@@ -1,0 +1,614 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr. Ahmed Khan",
+      "specialization": "Cardiology",
+      "hospital": "National Heart Center, Karachi",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "09:00-11:00",
+        "14:00-16:00"
+      ],
+      "contact": "+92551234567",
+      "email": "a.khan@heartcenter.pk",
+      "location": {
+        "lat": 24.8607,
+        "lng": 67.0011
+      }
+    },
+    {
+      "id": 2,
+      "name": "Dr. Fatima Malik",
+      "specialization": "Neurology",
+      "hospital": "NeuroCare Pakistan, Lahore",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "10:00-12:00",
+        "15:00-17:00"
+      ],
+      "contact": "+92552345678",
+      "email": "f.malik@neurocare.pk",
+      "location": {
+        "lat": 31.5204,
+        "lng": 74.3587
+      }
+    },
+    {
+      "id": 3,
+      "name": "Dr. Usman Sheikh",
+      "specialization": "Pediatrics",
+      "hospital": "Children's Hospital, Islamabad",
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "08:00-12:00"
+      ],
+      "contact": "+92553456789",
+      "email": "u.sheikh@kidshealth.pk",
+      "location": {
+        "lat": 33.6844,
+        "lng": 73.0479
+      }
+    },
+    {
+      "id": 4,
+      "name": "Dr. Ayesha Raza",
+      "specialization": "Orthopedics",
+      "hospital": "Bone & Joint Hospital, Rawalpindi",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "09:00-11:00",
+        "14:00-17:00"
+      ],
+      "contact": "+92554567890",
+      "email": "a.raza@orthohospital.pk",
+      "location": {
+        "lat": 33.6056,
+        "lng": 73.0593
+      }
+    },
+    {
+      "id": 5,
+      "name": "Dr. Bilal Hassan",
+      "specialization": "Dermatology",
+      "hospital": "Skin Care Center, Karachi",
+      "availability": [
+        "Tuesday",
+        "Thursday",
+        "Saturday"
+      ],
+      "appointment_times": [
+        "10:00-13:00",
+        "15:00-18:00"
+      ],
+      "contact": "+92555678901",
+      "email": "b.hassan@skincare.pk",
+      "location": {
+        "lat": 24.8934,
+        "lng": 67.0281
+      }
+    },
+    {
+      "id": 6,
+      "name": "Dr. Saima Iqbal",
+      "specialization": "Oncology",
+      "hospital": "Shaukat Khanum Cancer Hospital, Lahore",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "08:30-12:30"
+      ],
+      "contact": "+92556789012",
+      "email": "s.iqbal@skm.org.pk",
+      "location": {
+        "lat": 31.4822,
+        "lng": 74.3045
+      }
+    },
+    {
+      "id": 7,
+      "name": "Dr. Nadeem Akhtar",
+      "specialization": "Obstetrics & Gynecology",
+      "hospital": "Lady Dufferin Hospital, Karachi",
+      "availability": [
+        "Tuesday",
+        "Thursday",
+        "Saturday"
+      ],
+      "appointment_times": [
+        "09:00-12:00",
+        "14:00-17:00"
+      ],
+      "contact": "+92557890123",
+      "email": "n.akhtar@ldh.pk",
+      "location": {
+        "lat": 24.8517,
+        "lng": 67.0282
+      }
+    },
+    {
+      "id": 8,
+      "name": "Dr. Zainab Ali",
+      "specialization": "Psychiatry",
+      "hospital": "Karwan-e-Hayat, Karachi",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "10:00-13:00",
+        "15:00-18:00"
+      ],
+      "contact": "+92558901234",
+      "email": "z.ali@karwanehayat.pk",
+      "location": {
+        "lat": 24.9278,
+        "lng": 67.0991
+      }
+    },
+    {
+      "id": 9,
+      "name": "Dr. Omar Farooq",
+      "specialization": "Endocrinology",
+      "hospital": "Diabetes Center, Lahore",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "08:00-11:00",
+        "14:00-16:00"
+      ],
+      "contact": "+92559012345",
+      "email": "o.farooq@diabetes.pk",
+      "location": {
+        "lat": 31.5497,
+        "lng": 74.3436
+      }
+    },
+    {
+      "id": 10,
+      "name": "Dr. Hina Shah",
+      "specialization": "Gastroenterology",
+      "hospital": "Digestive Diseases Center, Islamabad",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "09:00-12:00",
+        "14:00-17:00"
+      ],
+      "contact": "+92550123456",
+      "email": "h.shah@ddc.pk",
+      "location": {
+        "lat": 33.7182,
+        "lng": 73.0605
+      }
+    },
+    {
+      "id": 11,
+      "name": "Dr. Kamran Butt",
+      "specialization": "Pulmonology",
+      "hospital": "Lung Health Pakistan, Lahore",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "10:00-13:00"
+      ],
+      "contact": "+92551234567",
+      "email": "k.butt@lunghealth.pk",
+      "location": {
+        "lat": 31.5055,
+        "lng": 74.3358
+      }
+    },
+    {
+      "id": 12,
+      "name": "Dr. Yasmin Qureshi",
+      "specialization": "Urology",
+      "hospital": "Urology Center, Karachi",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "08:30-12:30",
+        "14:30-17:30"
+      ],
+      "contact": "+92552345678",
+      "email": "y.qureshi@urology.pk",
+      "location": {
+        "lat": 24.9142,
+        "lng": 67.0821
+      }
+    },
+    {
+      "id": 13,
+      "name": "Dr. Imran Siddiqui",
+      "specialization": "Rheumatology",
+      "hospital": "Arthritis Care, Islamabad",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "09:00-12:00"
+      ],
+      "contact": "+92553456789",
+      "email": "i.siddiqui@arthritis.pk",
+      "location": {
+        "lat": 33.6938,
+        "lng": 73.0652
+      }
+    },
+    {
+      "id": 14,
+      "name": "Dr. Samina Khan",
+      "specialization": "Ophthalmology",
+      "hospital": "Al-Shifa Eye Trust, Rawalpindi",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "08:00-11:00",
+        "14:00-17:00"
+      ],
+      "contact": "+92554567890",
+      "email": "s.khan@alshifa.pk",
+      "location": {
+        "lat": 33.6205,
+        "lng": 73.0646
+      }
+    },
+    {
+      "id": 15,
+      "name": "Dr. Tariq Mahmood",
+      "specialization": "ENT (Ear, Nose & Throat)",
+      "hospital": "ENT Specialist Hospital, Lahore",
+      "availability": [
+        "Tuesday",
+        "Thursday",
+        "Saturday"
+      ],
+      "appointment_times": [
+        "09:30-12:30",
+        "15:00-18:00"
+      ],
+      "contact": "+92555678901",
+      "email": "t.mahmood@ent.pk",
+      "location": {
+        "lat": 31.4901,
+        "lng": 74.3160
+      }
+    },
+    {
+      "id": 16,
+      "name": "Dr. Farah Naz",
+      "specialization": "Nephrology",
+      "hospital": "Kidney Center, Karachi",
+      "availability": [
+        "Monday",
+        "Wednesday"
+      ],
+      "appointment_times": [
+        "10:00-13:00"
+      ],
+      "contact": "+92556789012",
+      "email": "f.naz@kidney.pk",
+      "location": {
+        "lat": 24.8765,
+        "lng": 67.0243
+      }
+    },
+    {
+      "id": 17,
+      "name": "Dr. Asif Riaz",
+      "specialization": "Hematology",
+      "hospital": "Blood Disorders Center, Islamabad",
+      "availability": [
+        "Tuesday",
+        "Thursday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "09:00-12:00"
+      ],
+      "contact": "+92557890123",
+      "email": "a.riaz@bloodcenter.pk",
+      "location": {
+        "lat": 33.7167,
+        "lng": 73.0983
+      }
+    },
+    {
+      "id": 18,
+      "name": "Dr. Nasreen Begum",
+      "specialization": "Infectious Disease",
+      "hospital": "Aga Khan University Hospital, Karachi",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "10:00-13:00",
+        "15:00-17:00"
+      ],
+      "contact": "+92558901234",
+      "email": "n.begum@aku.edu",
+      "location": {
+        "lat": 24.8745,
+        "lng": 67.0777
+      }
+    },
+    {
+      "id": 19,
+      "name": "Dr. Khalid Mahmood",
+      "specialization": "Allergy & Immunology",
+      "hospital": "Allergy Center, Lahore",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "08:30-12:30"
+      ],
+      "contact": "+92559012345",
+      "email": "k.mahmood@allergy.pk",
+      "location": {
+        "lat": 31.4704,
+        "lng": 74.4092
+      }
+    },
+    {
+      "id": 20,
+      "name": "Dr. Saba Khalid",
+      "specialization": "Physical Medicine & Rehabilitation",
+      "hospital": "Rehab Center, Islamabad",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "09:00-12:00",
+        "14:00-17:00"
+      ],
+      "contact": "+92550123456",
+      "email": "s.khalid@rehab.pk",
+      "location": {
+        "lat": 33.6842,
+        "lng": 73.0478
+      }
+    },
+    {
+      "id": 21,
+      "name": "Dr. Rizwan Ahmed",
+      "specialization": "Geriatrics",
+      "hospital": "Senior Citizens Hospital, Karachi",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "10:00-13:00"
+      ],
+      "contact": "+92551234568",
+      "email": "r.ahmed@seniorcare.pk",
+      "location": {
+        "lat": 24.8912,
+        "lng": 67.0345
+      }
+    },
+    {
+      "id": 22,
+      "name": "Dr. Sofia Kamran",
+      "specialization": "Pain Management",
+      "hospital": "Pain Relief Center, Lahore",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "09:00-12:00",
+        "14:00-17:00"
+      ],
+      "contact": "+92552345679",
+      "email": "s.kamran@painrelief.pk",
+      "location": {
+        "lat": 31.5206,
+        "lng": 74.3297
+      }
+    },
+    {
+      "id": 23,
+      "name": "Dr. Haroon Siddique",
+      "specialization": "Sleep Medicine",
+      "hospital": "Sleep Disorders Institute, Islamabad",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "10:00-13:00",
+        "15:00-18:00"
+      ],
+      "contact": "+92553456780",
+      "email": "h.siddique@sleephealth.pk",
+      "location": {
+        "lat": 33.6995,
+        "lng": 73.0367
+      }
+    },
+    {
+      "id": 24,
+      "name": "Dr. Amina Sheikh",
+      "specialization": "Sports Medicine",
+      "hospital": "Sports Injury Center, Karachi",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "08:00-11:00",
+        "14:00-17:00"
+      ],
+      "contact": "+92554567891",
+      "email": "a.sheikh@sportsmedicine.pk",
+      "location": {
+        "lat": 24.9138,
+        "lng": 67.0983
+      }
+    },
+    {
+      "id": 25,
+      "name": "Dr. Faisal Iqbal",
+      "specialization": "Family Medicine",
+      "hospital": "Community Health Center, Lahore",
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "08:30-12:30",
+        "14:00-17:00"
+      ],
+      "contact": "+92555678902",
+      "email": "f.iqbal@communityhealth.pk",
+      "location": {
+        "lat": 31.4704,
+        "lng": 74.4092
+      }
+    },
+    {
+      "id": 26,
+      "name": "Dr. Nadia Ashraf",
+      "specialization": "Emergency Medicine",
+      "hospital": "Jinnah Hospital, Lahore",
+      "availability": [
+        "Shift rotation"
+      ],
+      "appointment_times": [
+        "24/7 Emergency"
+      ],
+      "contact": "+92556789013",
+      "email": "n.ashraf@jinnahhospital.pk",
+      "location": {
+        "lat": 31.5039,
+        "lng": 74.3241
+      }
+    },
+    {
+      "id": 27,
+      "name": "Dr. Waseem Akhtar",
+      "specialization": "Radiation Oncology",
+      "hospital": "Oncology Institute, Karachi",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "09:00-12:00"
+      ],
+      "contact": "+92557890124",
+      "email": "w.akhtar@oncology.pk",
+      "location": {
+        "lat": 24.8992,
+        "lng": 67.0723
+      }
+    },
+    {
+      "id": 28,
+      "name": "Dr. Sanaullah Khan",
+      "specialization": "Plastic Surgery",
+      "hospital": "Cosmetic Surgery Center, Islamabad",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "10:00-13:00",
+        "15:00-18:00"
+      ],
+      "contact": "+92558901235",
+      "email": "s.khan@cosmeticsurgery.pk",
+      "location": {
+        "lat": 33.6904,
+        "lng": 73.0553
+      }
+    },
+    {
+      "id": 29,
+      "name": "Dr. Tahira Mohsin",
+      "specialization": "Pathology",
+      "hospital": "Diagnostic Labs Pakistan, Lahore",
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "appointment_times": [
+        "09:00-12:00"
+      ],
+      "contact": "+92559012346",
+      "email": "t.mohsin@diagnostic.pk",
+      "location": {
+        "lat": 31.4976,
+        "lng": 74.3357
+      }
+    },
+    {
+      "id": 30,
+      "name": "Dr. Zubair Ahmed",
+      "specialization": "Nuclear Medicine",
+      "hospital": "Advanced Medical Imaging, Karachi",
+      "availability": [
+        "Tuesday",
+        "Thursday"
+      ],
+      "appointment_times": [
+        "10:00-13:00"
+      ],
+      "contact": "+92550123457",
+      "email": "z.ahmed@medicalimaging.pk",
+      "location": {
+        "lat": 24.9265,
+        "lng": 67.0308
+      }
+    }
+  ]
+}

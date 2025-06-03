@@ -1,0 +1,503 @@
+{
+  "intents": [
+    {
+      "tag": "Cuts",
+      "patterns": [
+        "What to do if Cuts?",
+        "How to cure Cuts?",
+        "Which medicine to apply for Cuts?",
+        "what to apply on cuts?",
+        "Cuts"
+      ],
+      "responses": [
+        "Wash the cut properly to prevent infection and stop the bleeding by applying pressure for 1-2 minutes until bleeding stops.\nApply Petroleum Jelly to make sure that the wound is moist for quick healing.\nFinally, cover the cut with a sterile bandage.\nPain relievers such as acetaminophen can be applied."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Whats up"],
+      "responses": ["Hi, I am your paramedic assistant."],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "cya",
+        "See you later",
+        "Goodbye",
+        "I am Leaving",
+        "Have a Good day",
+        "bye"
+      ],
+      "responses": [
+        "Sad to see you go :(",
+        "Talk to you later",
+        "Goodbye!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Abrasions",
+      "patterns": [
+        "how do you treat abrasions?",
+        "Do Abrasions cause scars?",
+        "Abrasions",
+        "what to do if abrasions?",
+        "Which medicine to apply for abrasions?",
+        "How to cure abrasions?"
+      ],
+      "responses": [
+        "Begin with washed hands.\nGently clean the area with cool to lukewarm water and mild soap.\nRemove dirt or other particles from the wound using sterilized tweezers.\nFor a mild scrape that’s not bleeding, leave the wound uncovered.\nIf the wound is bleeding, use a clean cloth or bandage, and apply gentle pressure to the area to stop any bleeding.\nCover a wound that bled with a thin layer of topical antibiotic ointment, like Bacitracin, or a sterile moisture barrier ointment, like Aquaphor.\nCover it with a clean bandage or gauze.\nGently clean the wound and change the ointment and bandage once per day.\nWatch the area for signs of infection, like pain or redness and swelling.\nSee your doctor if you suspect infection."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "stings",
+      "patterns": [
+        "How do you treat Sting?",
+        "Stings",
+        "What to do if you get a sting?",
+        "Which medicine to apply if sting?"
+      ],
+      "responses": [
+        "Remove any stingers immediately.\nSome experts recommend scraping out the stinger with a credit card.\nApplying ice to the site may provide some mild relief.\nApply ice for 20 minutes once every hour as needed.\nWrap the ice in a towel or keep a cloth between the ice and skin to keep from freezing the skin.\nTaking an antihistamine such as diphenhydramine (Benadryl) or a nonsedating one such as loratadine (Claritin) will help with itching and swelling.\nTake acetaminophen (Tylenol) or ibuprofen (Motrin) for pain relief as needed.\nWash the sting site with soap and water.\nPlacing hydrocortisone cream on the sting can help relieve redness, itching, and swelling."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Splinter",
+      "patterns": [
+        "How to remove Splinters",
+        "How to cure Splinters?",
+        "What to do if I have splinters?",
+        "How do you bring a splinter to the surface?"
+      ],
+      "responses": [
+        "1) SOAK IT IN EPSOM SALTS:\nDissolve a cup of the salts into a warm bath and soak whatever part of the body has the splinter.\nFailing that, you can also put some of the salts onto a bandage pad and leave it covered for a day; this will eventually help bring the splinter to the surface.\n\n2) VINEGAR OR OIL:\nAnother simple way to draw out that stubborn splinter is to soak the affected area in oil (olive or corn) or white vinegar.\nJust pour some in a bowl and soak the area for around 20 to 30 minutes."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Sprains",
+      "patterns": [
+        "How do you treat a sprain?",
+        "what to do if i get a sprain?",
+        "Which cream to apply if i get a sprain?",
+        "Which medicine to apply if I get a sprain?"
+      ],
+      "responses": [
+        "Use an ice pack or ice slush bath immediately for 15 to 20 minutes and repeat every two to three hours while you're awake.\nTo help stop swelling, compress the ankle with an elastic bandage until the swelling stops.\nIn most cases, pain relievers — such as ibuprofen (Advil, Motrin IB, others) or naproxen sodium (Aleve, others) or acetaminophen (Tylenol, others) are enough to manage the pain of a sprained ankle."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Strains",
+      "patterns": [
+        "How do you treat a strain?",
+        "what to do if i get a strain?",
+        "Which cream to apply if i get a strain?",
+        "Which medicine to apply if I get a strain?",
+        "How do you diagnose a strain?",
+        "Is heat or ice better for a pulled muscle?"
+      ],
+      "responses": [
+        "Rest, Ice, Compression, and Elevation can be used to cure strains.\nAvoid using your muscle for a few days, especially if movement causes an increase in pain.\nApply ice immediately after injuring your muscle.\nThis will minimize swelling.\nDon’t put ice directly on your skin.\nUse an ice pack or wrap ice in a towel.\nTo reduce swelling, wrap the affected area with an elastic bandage until swelling comes down."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Fever",
+      "patterns": [
+        "How do you treat a mild Fever?",
+        "what to do if i get a mild fever?",
+        "Which medicine to take if I get a mild fever?",
+        "fever"
+      ],
+      "responses": [
+        "To treat a fever at home:\n1) Drink plenty of fluids to stay hydrated.\n2) Dress in lightweight clothing.\n3) Use a light blanket if you feel chilled, until the chills end.\n4) Take acetaminophen (Tylenol, others) or ibuprofen (Advil, Motrin IB, others).\n5) Get medical help if the fever lasts more than five days in a row."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Nasal Congestion",
+      "patterns": [
+        "How do you treat nasal Congestion?",
+        "what to do if i get a nasal congestion?",
+        "Which medicine to take if I have a nasal congestion?",
+        "what to do if i have a blocked nose?",
+        "How do you treat a blocked nose?",
+        "How long does nasal congestion last?"
+      ],
+      "responses": [
+        "When you’re stuffed up, focus on keeping your nasal passages and sinuses moist.\nTo keep your nasal passages moist, you can:\n1) Use a humidifier or vaporizer.\n2) Drink lots of fluids.\nThis will thin out your mucus, which could help prevent blocked sinuses.\n3) Place a warm, wet towel on your face.\nIt may relieve discomfort and open your nasal passages."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Cough",
+      "patterns": [
+        "How to cure cough?",
+        "How do you treat cough?",
+        "what to do if i get a cough?",
+        "Which medicine to take if I get cough?",
+        "How do you get rid of cough?"
+      ],
+      "responses": [
+        "1) Honey:\nUse honey to treat a cough, mix 2 teaspoons (tsp) with warm water or an herbal tea.\nDrink this mixture once or twice a day.\nDo not give honey to children under 1 year of age.\n\n2) Ginger:\nBrew up a soothing ginger tea by adding 20–40 grams (g) of fresh ginger slices to a cup of hot water.\nAllow to steep for a few minutes before drinking.\nAdd honey or lemon juice to improve the taste and further soothe a cough.\n\n3) Fluids:\nStaying hydrated is vital for those with a cough or cold.\nResearch indicates that drinking liquids at room temperature can alleviate a cough, runny nose, and sneezing."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Sore Throat",
+      "patterns": [
+        "How do you treat sore throat?",
+        "what to do if i get a sore throat?",
+        "Which medicine to take if I get a sore throat?",
+        "How to cure sore throat?"
+      ],
+      "responses": [
+        "1) Make sure you get plenty of rest and drink a lot of fluids.\n2) Inhale steam:\nRun hot water in a sink.\nDrape a towel over you to trap the steam, and have the person lean over the sink with the water running.\nTell him to breathe deeply through his mouth and nose for 5 to 10 minutes.\nRepeat several times a day.\n3) Have him sip chicken broth or warm tea with honey.\nDon’t give honey to a child under 12 months of age."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Gastrointestinal problems",
+      "patterns": [
+        "How do you treat gas problems?",
+        "what to do if i have Gastrointestinal problems?",
+        "Which medicine to take if I get gas problem?",
+        "How to cure Gas problems?"
+      ],
+      "responses": [
+        "1) Replenish body fluids.\n2) Do not take antidiarrheal drugs or laxatives or pain medication, unless specified by a medical professional.\n3) Taking antacids may help, per recommendation of a healthcare professional.\n4) If prone to frequent heartburns, seek medical help.\n5) Taking meals that are not spicy regularly can relieve ulcer pains.\n6) Seek medical help if conditions persist or continue to worsen."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Skin problems",
+      "patterns": [
+        "How do you treat Skin problems?",
+        "what to do if i get a skin allergy?",
+        "Which medicine to take if I get a skin allergy?",
+        "How to cure skin allergy?"
+      ],
+      "responses": [
+        "1) Hydrocortisone cream.\n2) Ointments like calamine lotion.\n3) Antihistamines.\n4) Cold compresses.\n5) Oatmeal baths.\n6) Talk to your doctor about what's best for your specific rash."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Abdonominal Pain",
+      "patterns": [
+        "How do you treat Abdonominal Pain?",
+        "what to do if i get a Abdonominal Pain?",
+        "Which medicine to take if I get a Abdonominal Pain?",
+        "How to cure Abdonominal Pain?"
+      ],
+      "responses": [
+        "1) Provide clear fluids to sip, such as water, broth, or fruit juice diluted with water.\n2) Serve bland foods, such as saltine crackers, plain bread, dry toast, rice, gelatin, or applesauce.\n3) Avoid spicy or greasy foods and caffeinated or carbonated drinks until 48 hours after all symptoms have gone away."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Bruises",
+      "patterns": [
+        "How do you treat Bruises?",
+        "what to do if i get a Bruise?",
+        "Which medicine to take if I get a Bruise?",
+        "How to cure Bruises?"
+      ],
+      "responses": [
+        "1) Ice the bruise with an ice pack wrapped in a towel.\n2) Leave it in place for 10 to 20 minutes.\n3) Repeat several times a day for a day or two as needed.\n4) Compress the bruised area if it is swelling, using an elastic bandage."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Broken Toe",
+      "patterns": [
+        "How do you treat a Broken Toe?",
+        "what to do if i get a Broken Toe?",
+        "Which medicine to take if I get a Broken Toe?",
+        "How to cure Broken Toe?"
+      ],
+      "responses": [
+        "1) To help decrease pain and swelling in a broken toe, elevate the foot, ice the injury, and stay off the foot.\n2) Depending on the severity of the fracture, the toe may need to be put back into place (reduced), and some compound toe fractures may require surgery.\n3) Most broken toes heal without complications in six weeks."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Choking",
+      "patterns": [
+        "How do you treat Choking?",
+        "what to do if i get a Choke?",
+        "Which medicine to take if I get Choked?",
+        "How to cure Choking?"
+      ],
+      "responses": [
+        "1) Encourage them to keep coughing to try to clear the blockage.\n2) Ask them to try to spit out the object if it's in their mouth.\n3) If coughing doesn't work, start back blows and abdominal thrusts."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Wound",
+      "patterns": [
+        "How do you treat a wound?",
+        "what to do if i get a Wound?",
+        "Which medicine to take if I get wounded?",
+        "How to cure a wound?"
+      ],
+      "responses": [
+        "1) Rinse the cut or wound with water and apply pressure with sterile gauze, a bandage, or a clean cloth.\n2) If blood soaks through the bandage, place another bandage on top of the first and keep applying pressure.\n3) Raise the injured body part to slow bleeding.\n4) When bleeding stops, cover the wound with a new, clean bandage."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Diarrhea",
+      "patterns": [
+        "How do you treat Diarrhea?",
+        "what to do if i get Diarrhea?",
+        "Which medicine to take if I get Diarrhea?",
+        "How to cure Diarrhea?"
+      ],
+      "responses": [
+        "1) Hydrating the body is essential for recovering from diarrhea.\nThis causes the body to lose electrolytes such as sodium and chloride.\n2) It is highly recommended to avoid dairy products, as they may worsen diarrhea in some people.\n3) However, if diarrhea lasts for more than 2 days, seek medical advice to avoid complications."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Frost bite",
+      "patterns": [
+        "How do you treat a Frost bite?",
+        "what to do if i get a Frost bite?",
+        "Which medicine to take if I get a Frost bite?",
+        "How to cure Frost bite?"
+      ],
+      "responses": [
+        "1) Get into a warm room as soon as possible.\n2) Unless absolutely necessary, do not walk on frostbitten feet or toes.\n3) Immerse the affected area in warm (not hot) water (the temperature should be comfortable to the touch for unaffected parts of the body).\n4) Do not rub the frostbitten area with snow or massage it at all.\n5) Avoid using a heating pad, heat lamp, or the heat of a stove, fireplace, or radiator for warming.\n6) Seek medical attention if numbness or discoloration persists."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Heat Exhaustion",
+      "patterns": [
+        "How do you treat Heat Exhaustion?",
+        "what to do if i feel Exhausted due to heat?",
+        "Which medicine to take if I get Exhausted?",
+        "How to cure Heat Exhaustion?"
+      ],
+      "responses": [
+        "1) Move to a cooler environment, preferably an air-conditioned room.\n2) Lie down and rest.\n3) Drink cool, non-alcoholic beverages.\n4) Take a cool shower, bath, or sponge bath.\n5) Loosen or remove unnecessary clothing.\n6) If symptoms worsen or last longer than an hour, seek medical attention."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Heat Stroke",
+      "patterns": [
+        "How do you treat Heat Stroke?",
+        "what to do if i get a Heat Stroke?",
+        "Which medicine to take if I get Stroke?",
+        "How to cure a Heat Stroke?"
+      ],
+      "responses": [
+        "1) Call emergency services immediately.\n2) Move the person to a cooler environment.\n3) Remove excess clothing.\n4) Cool the person with whatever means available (e.g., cool water, ice packs, fanning).\n5) Do not give fluids if the person is unconscious.\n6) Monitor body temperature and continue cooling efforts until the body temperature drops to 101–102°F (38.3–38.9°C)."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Insect Bites",
+      "patterns": [
+        "How do you treat a Insect Bite?",
+        "what to do if a insect bites me?",
+        "Which medicine to take if I get bitten by a insect?",
+        "How to cure insect bite?"
+      ],
+      "responses": [
+        "1) Wash the area with soap and water to reduce infection risk.\n2) Apply a cold compress or ice pack (wrapped in cloth) for 10 minutes to reduce swelling.\n3) Use over-the-counter hydrocortisone cream (1%) or calamine lotion for itching.\n4) Take an oral antihistamine (like Benadryl) if itching is severe.\n5) For pain, take acetaminophen or ibuprofen.\n6) Monitor for signs of allergic reaction (difficulty breathing, swelling of face/lips) - seek emergency care if these occur.\n7) Keep the bite clean and avoid scratching to prevent infection."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "nose bleed",
+      "patterns": [
+        "How do you treat a bleeding nose?",
+        "what to do if my nose is bleeding?",
+        "Which medicine to take if I get nose bleed?",
+        "How to cure nose bleeding?"
+      ],
+      "responses": [
+        "1) Sit upright and lean slightly forward (do NOT tilt head back).\n2) Pinch the soft part of your nose (just below the bony bridge) for 10-15 minutes while breathing through your mouth.\n3) Apply an ice pack wrapped in cloth to the bridge of your nose.\n4) After bleeding stops, avoid blowing your nose for several hours.\n5) If bleeding persists after 20 minutes of pressure, seek medical help.\n6) For frequent nosebleeds, use a saline nasal spray to keep nasal passages moist."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Pulled Muscle",
+      "patterns": [
+        "How do you treat a Pulled Muscle?",
+        "what to do if my muscle is pulled?",
+        "Which medicine to take if I got pulled muscle?",
+        "How to cure a pulled muscle?"
+      ],
+      "responses": [
+        "Follow the RICE method:\n1) REST: Avoid activities that cause pain.\n2) ICE: Apply ice wrapped in cloth for 20 minutes every 2 hours (first 48 hours).\n3) COMPRESSION: Wrap with an elastic bandage (not too tight).\n4) ELEVATION: Raise the injured area above heart level when possible.\n5) Take OTC pain relievers (ibuprofen or acetaminophen).\n6) After 48 hours, apply gentle heat and begin light stretching.\n7) Gradually return to activity - stop if pain recurs."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Rectal bleeding",
+      "patterns": [
+        "How do you treat Rectal Bleeding?",
+        "what to do if i get a Rectal Bleeding?",
+        "Which medicine to take if I get Rectal Bleeding?",
+        "How to cure Rectal Bleeding?"
+      ],
+      "responses": [
+        "1) For minor bleeding from hemorrhoids:\n   - Apply over-the-counter hemorrhoid cream\n   - Use stool softeners if constipation is present\n   - Take warm sitz baths for 15 minutes 2-3 times daily\n2) For persistent or heavy bleeding:\n   - Seek immediate medical attention\n   - Do NOT take aspirin or NSAIDs which can worsen bleeding\n3) Regardless of severity:\n   - Drink plenty of fluids\n   - Eat high-fiber foods\n   - Avoid straining during bowel movements"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Sun Burn",
+      "patterns": [
+        "How do you treat Sun Burn?",
+        "what to do if i get a Sun Burn?",
+        "Which medicine to take if I get Sun Burn?",
+        "How to cure a Sun Burn?"
+      ],
+      "responses": [
+        "1) Cool the skin with damp cloths or take cool (not cold) baths.\n2) Apply aloe vera or moisturizing lotion (avoid petroleum-based products).\n3) Take ibuprofen or aspirin to reduce swelling and discomfort.\n4) Drink extra water to prevent dehydration.\n5) Leave blisters intact - they protect against infection.\n6) Wear loose, soft clothing over burned areas.\n7) For severe burns with fever/chills or large blisters, seek medical care.\n8) Avoid further sun exposure until fully healed."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Testicle Pain",
+      "patterns": [
+        "How do you treat Testicle Pain?",
+        "what to do if i get a Testicle Pain?",
+        "Which medicine to take if I get a Testicle Pain?",
+        "How to cure Testicle Pain?"
+      ],
+      "responses": [
+        "1) For mild pain:\n   - Apply an ice pack wrapped in cloth for 15-20 minutes\n   - Take OTC pain relievers (acetaminophen or ibuprofen)\n   - Wear supportive underwear\n2) Seek IMMEDIATE medical care if:\n   - Pain is sudden/severe\n   - Accompanied by nausea/vomiting\n   - There's swelling/lump in scrotum\n   - Pain lasts longer than 1 hour\n3) Never ignore testicular pain - some causes require emergency treatment."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Vertigo",
+      "patterns": [
+        "How do you treat a Vertigo?",
+        "what to do if i get a Vertigo?",
+        "Which medicine to take if I get Vertigo?",
+        "How to cure a Vertigo?"
+      ],
+      "responses": [
+        "1) During an episode:\n   - Sit or lie down immediately\n   - Keep your head still in a comfortable position\n   - Avoid sudden movements\n2) For BPPV (common vertigo):\n   - Perform the Epley maneuver (ask doctor to demonstrate)\n3) Medications that may help:\n   - Antihistamines (meclizine)\n   - Anti-nausea drugs (dramamine)\n   - Prescription vertigo medications\n4) Stay hydrated and avoid caffeine/alcohol\n5) If vertigo persists >1 week or is accompanied by hearing loss/weakness, see a doctor."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Normal Bleeding",
+      "patterns": [
+        "How do you treat bleeding?",
+        "what to do if i get a Bleeding?",
+        "Which medicine to take if I get bleeding?",
+        "How to cure Bleeding?"
+      ],
+      "responses": [
+        "For minor cuts/wounds:\n1) Apply direct pressure with clean cloth/gauze for 5-10 minutes\n2) Clean with mild soap and water once bleeding stops\n3) Apply antibiotic ointment\n4) Cover with sterile bandage\n\nFor nosebleeds:\n1) Pinch nostrils together for 10-15 minutes\n2) Lean forward slightly\n\nSeek emergency care if:\n- Bleeding doesn't stop after 20 minutes\n- Blood is spurting (arterial bleeding)\n- You lose significant blood volume\n- Bleeding is from head/neck/abdomen"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Eye Injury",
+      "patterns": [
+        "How do you treat an eye Injury?",
+        "what to do if i get a eye Injury?",
+        "Which medicine to take if I injured my eye?",
+        "How to cure injured eye?"
+      ],
+      "responses": [
+        "DO NOT:\n- Rub the eye\n- Try to remove embedded objects\n- Apply medications without doctor's advice\n\nDO:\n1) For chemical exposure:\n   - Flush with clean water for 15+ minutes\n   - Seek emergency care\n2) For cuts/scratches:\n   - Cover with rigid shield (like paper cup bottom)\n   - Seek immediate care\n3) For blunt trauma:\n   - Apply cold compress (no pressure)\n   - Check for vision changes\n4) Always seek professional evaluation for eye injuries"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Chemical Burn",
+      "patterns": [
+        "How do you treat a chemical burn?",
+        "what to do if i get a Chemical Burn?",
+        "Which medicine to take if I get burn due to chemicals?",
+        "How to cure Chemical Burn?"
+      ],
+      "responses": [
+        "1) Remove contaminated clothing/jewelry\n2) Rinse affected area with cool running water for 15-20 minutes\n3) For dry chemicals, brush off residue BEFORE rinsing\n4) Cover loosely with sterile gauze (no adhesive on burned skin)\n5) Take acetaminophen for pain\n6) Seek emergency care if:\n   - Burn is large/deep\n   - Affects eyes/face/hands/genitals\n   - Shows signs of infection\n   - Involves strong acids/alkalis\n7) Never apply creams/ointments unless prescribed"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Poison",
+      "patterns": [
+        "How do you treat a Poison?",
+        "what to do if i get Poison?",
+        "Which medicine to take if I am poisoned?",
+        "How to cure Poisoning?"
+      ],
+      "responses": [
+        "1) Call Poison Control immediately (1-800-222-1222 in US)\n2) For swallowed poisons:\n   - DO NOT induce vomiting unless instructed\n   - Have container/label ready to identify poison\n3) For skin exposure:\n   - Remove contaminated clothing\n   - Rinse skin for 15-20 minutes\n4) For eye exposure:\n   - Flush with lukewarm water for 15-20 minutes\n5) For inhaled poisons:\n   - Move to fresh air immediately\n6) Never give anything by mouth unless directed by professionals"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Teeth",
+      "patterns": [
+        "How do you treat broken Teeth?",
+        "what to do if my Teeth got broken?",
+        "Which medicine to take if I get broken teeth?",
+        "cure broken teeth?"
+      ],
+      "responses": [
+        "1) For tooth fragments:\n   - Save any pieces in milk or saliva\n2) Rinse mouth with warm water\n3) Apply gauze to bleeding areas for 10 minutes\n4) Use cold compress for swelling\n5) Take acetaminophen (not aspirin/ibuprofen which may increase bleeding)\n6) For knocked-out permanent tooth:\n   - Handle by crown (not roots)\n   - Rinse gently (don't scrub)\n   - Try to reinsert or store in milk/saline\n7) See dentist immediately (within 30 minutes for best chance of saving tooth)"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "seizure",
+      "patterns": [
+        "How do you treat a seizure?",
+        "what to do if i get a seizure?",
+        "Which medicine to take if I get seizure?",
+        "How to cure seizure?"
+      ],
+      "responses": [
+        "During seizure:\n1) Clear area of hard/sharp objects\n2) Cushion head if possible\n3) Turn person gently onto side\n4) Do NOT restrain or put anything in mouth\n5) Time the seizure\n\nAfter seizure:\n1) Stay with person until fully alert\n2) Offer reassurance\n3) Check for medical ID\n\nCall emergency services if:\n- Seizure lasts >5 minutes\n- Person has difficulty breathing\n- Another seizure follows immediately\n- Injury occurs during seizure\n- First-time seizure\n- Occurs in water\n- Person has diabetes/pregnancy"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Head Injury",
+      "patterns": [
+        "How do you treat a head Injury?",
+        "what to do if i get a Head Injury?",
+        "Which medicine to take if I get injured in the head?",
+        "How to cure Head Injury?"
+      ],
+      "responses": [
+        "1) For mild injuries (no loss of consciousness):\n   - Apply ice to reduce swelling\n   - Rest and monitor for 24 hours\n   - Take acetaminophen for pain (avoid aspirin/NSAIDs)\n2) Seek EMERGENCY care if:\n   - Loss of consciousness occurs\n   - Persistent headache/worsening pain\n   - Repeated vomiting\n   - Confusion/memory loss\n   - Unequal pupils\n   - Clear fluid from nose/ears\n   - Seizures occur\n3) Never leave someone alone after head injury - monitor for 48 hours"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "Fainting",
+      "patterns": [
+        "How do you treat Faint?",
+        "what to do if i feel like Fainting?",
+        "Which medicine to take if I get a Faint?",
+        "How to cure Fainting?"
+      ],
+      "responses": [
+        "If someone faints:\n1) Lay person flat on back\n2) Elevate legs 12 inches\n3) Loosen tight clothing\n4) Ensure fresh air\n5) Do NOT give food/drink until fully alert\n6) After waking, have them sit up slowly\n\nWhen feeling faint yourself:\n1) Sit down and put head between knees\n2) Or lie down immediately\n3) Breathe deeply\n\nSeek medical care if:\n- Fainting occurs without warning\n- Happens frequently\n- Accompanied by chest pain/irregular heartbeat\n- Follows head injury\n- Occurs during exercise\n- In pregnant women/those with heart conditions"
+      ],
+      "context_set": ""
+    }
+  ]
+}

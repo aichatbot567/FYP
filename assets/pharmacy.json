@@ -1,0 +1,306 @@
+{
+  "pharmacies": [
+    {
+      "id": 1,
+      "name": "Shifa International Hospital Pharmacy",
+      "type": "Hospital Pharmacy",
+      "hospital": "Shifa International Hospital, Islamabad",
+      "services": [
+        "24/7 Pharmacy Services",
+        "Prescription Dispensing",
+        "IV Compounding",
+        "Chemotherapy Preparation",
+        "Clinical Pharmacy Consultations"
+      ],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "operating_hours": [
+        "24/7 (Inpatient)",
+        "08:00-22:00 (Outpatient)"
+      ],
+      "contact": "+92518463977",
+      "email": "pharmacy@shifa.com.pk",
+      "location": {
+        "lat": 33.6844,
+        "lng": 73.0479
+      }
+    },
+    {
+      "id": 2,
+      "name": "eShifa Online Pharmacy",
+      "type": "Online Pharmacy",
+      "hospital": "N/A (Delivery Service)",
+      "services": [
+        "Medicine Home Delivery",
+        "Online Prescription Management",
+        "Chronic Disease Medication Refills",
+        "OTC Products",
+        "Healthcare Essentials"
+      ],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "operating_hours": [
+        "08:00-22:00 (Delivery Hours)",
+        "24/7 (Online Orders)"
+      ],
+      "contact": "+925111111567",
+      "email": "support@eshifa.pk",
+      "location": {
+        "lat": 33.6934,
+        "lng": 73.0642
+      }
+    },
+    {
+      "id": 3,
+      "name": "Meri Pharmacy (F-10 Branch)",
+      "type": "Retail Pharmacy",
+      "hospital": "N/A",
+      "services": [
+        "Prescription Services",
+        "Vaccinations",
+        "Health Screening",
+        "First Aid Supplies",
+        "Baby Care Products"
+      ],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "operating_hours": [
+        "08:00-22:00"
+      ],
+      "contact": "+925112345678",
+      "email": "f10@meripharmacy.pk",
+      "location": {
+        "lat": 33.6996,
+        "lng": 73.0369
+      }
+    },
+    {
+      "id": 4,
+      "name": "Dawaai.pk Islamabad Hub",
+      "type": "Online Pharmacy",
+      "hospital": "N/A",
+      "services": [
+        "Nationwide Medicine Delivery",
+        "Doctor Teleconsultation",
+        "Diabetes Care Packages",
+        "Elderly Care Products",
+        "Healthcare Subscriptions"
+      ],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "operating_hours": [
+        "09:00-21:00 (Customer Support)",
+        "24/7 (Online Orders)"
+      ],
+      "contact": "+9251111329924",
+      "email": "islamabad@dawaai.pk",
+      "location": {
+        "lat": 33.7105,
+        "lng": 73.0831
+      }
+    },
+    {
+      "id": 5,
+      "name": "Al-Shifa Eye Trust Pharmacy",
+      "type": "Specialty Pharmacy",
+      "hospital": "Al-Shifa Eye Trust, Rawalpindi",
+      "services": [
+        "Ophthalmic Medications",
+        "Contact Lens Solutions",
+        "Eye Care Products",
+        "Post-Surgery Kits",
+        "Vision Supplements"
+      ],
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "operating_hours": [
+        "08:00-17:00"
+      ],
+      "contact": "+925154567890",
+      "email": "pharmacy@alshifa.pk",
+      "location": {
+        "lat": 33.6205,
+        "lng": 73.0646
+      }
+    },
+    {
+      "id": 6,
+      "name": "Children's Hospital Pharmacy",
+      "type": "Pediatric Pharmacy",
+      "hospital": "Children's Hospital, Islamabad",
+      "services": [
+        "Pediatric Formulations",
+        "Vaccine Storage",
+        "Growth Supplements",
+        "Special Needs Nutrition",
+        "Child-Friendly Medication"
+      ],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "operating_hours": [
+        "08:00-20:00"
+      ],
+      "contact": "+925153456789",
+      "email": "pharmacy@childrenshospital.pk",
+      "location": {
+        "lat": 33.6844,
+        "lng": 73.0479
+      }
+    },
+    {
+      "id": 7,
+      "name": "Islamabad Medical Complex Pharmacy",
+      "type": "Hospital Pharmacy",
+      "hospital": "Islamabad Medical Complex",
+      "services": [
+        "Emergency Medications",
+        "Surgical Supplies",
+        "Inpatient Pharmacy",
+        "Outpatient Prescriptions",
+        "Wound Care Products"
+      ],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "operating_hours": [
+        "24/7"
+      ],
+      "contact": "+925180123456",
+      "email": "pharmacy@imc.pk",
+      "location": {
+        "lat": 33.7182,
+        "lng": 73.0605
+      }
+    },
+    {
+      "id": 8,
+      "name": "Blue Area Pharmacy",
+      "type": "Retail Pharmacy",
+      "hospital": "N/A",
+      "services": [
+        "General Medicines",
+        "Health Supplements",
+        "First Aid",
+        "Medical Equipment",
+        "OTC Products"
+      ],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "operating_hours": [
+        "09:00-23:00"
+      ],
+      "contact": "+925172345678",
+      "email": "bluearea@pharmacy.pk",
+      "location": {
+        "lat": 33.7215,
+        "lng": 73.0433
+      }
+    },
+    {
+      "id": 9,
+      "name": "Rehab Center Pharmacy",
+      "type": "Specialty Pharmacy",
+      "hospital": "Rehab Center, Islamabad",
+      "services": [
+        "Physical Therapy Medications",
+        "Pain Management",
+        "Mobility Aids",
+        "Rehabilitation Equipment",
+        "Chronic Pain Solutions"
+      ],
+      "availability": [
+        "Monday",
+        "Wednesday",
+        "Friday"
+      ],
+      "operating_hours": [
+        "09:00-17:00"
+      ],
+      "contact": "+925150123456",
+      "email": "pharmacy@rehab.pk",
+      "location": {
+        "lat": 33.6842,
+        "lng": 73.0478
+      }
+    },
+    {
+      "id": 10,
+      "name": "G-11 Community Pharmacy",
+      "type": "Retail Pharmacy",
+      "hospital": "N/A",
+      "services": [
+        "Community Health Services",
+        "Vaccinations",
+        "Blood Pressure Monitoring",
+        "Basic Diagnostics",
+        "Health Education"
+      ],
+      "availability": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "operating_hours": [
+        "08:00-22:00"
+      ],
+      "contact": "+925189012345",
+      "email": "g11@communitypharmacy.pk",
+      "location": {
+        "lat": 33.6881,
+        "lng": 73.0276
+      }
+    }
+  ],
+  "metadata": {
+    "last_updated": "2024-05-30",
+    "data_source": "Pakistan Pharmacy Council, Hospital Directories"
+  }
+}

@@ -1,0 +1,20 @@
+metrics:
+  cyclomatic-complexity: 20
+  number-of-methods: 10
+  lines-of-code: 100
+  maximum-nesting-level: 5
+  number-of-parameters: 4
+  source-lines-of-code: 50
+  halstead-volume: 150
+
+metrics-exclude:
+  - test/**
+  - lib/generated/**
+
+rules:
+  - prefer-trailing-comma
+  - avoid-duplicate-named-imports
+
+anti-patterns:
+  - long-method
+  - long-parameter-list
