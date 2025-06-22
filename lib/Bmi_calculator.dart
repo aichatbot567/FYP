@@ -65,7 +65,6 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF4BA1AE),
       ),
       body: Container(
@@ -91,7 +90,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                 child: Text(
                   'BMI Calculator',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -130,7 +129,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                               value: unit,
                               child: Text(
                                 unit,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.black),
                               ),
                             );
                           }).toList(),
@@ -146,12 +145,12 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                           controller: _weightController,
                           decoration: InputDecoration(
                             labelText: 'Weight (${_weightUnit.toLowerCase()})',
-                            labelStyle: const TextStyle(color: Colors.white),
+                            labelStyle: const TextStyle(color: Colors.black54),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.black54),
                           keyboardType: TextInputType.number,
                         ),
                         const SizedBox(height: 10),
@@ -164,7 +163,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                               value: unit,
                               child: Text(
                                 unit,
-                                style: const TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.black),
                               ),
                             );
                           }).toList(),
@@ -185,12 +184,12 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                             controller: _heightMetersController,
                             decoration: InputDecoration(
                               labelText: 'Height (m)',
-                              labelStyle: const TextStyle(color: Colors.white),
+                              labelStyle: const TextStyle(color: Colors.black54),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.black54),
                             keyboardType: TextInputType.number,
                           ),
                         if (_heightUnit == 'Centimeters')
@@ -198,12 +197,12 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                             controller: _heightCmController,
                             decoration: InputDecoration(
                               labelText: 'Height (cm)',
-                              labelStyle: const TextStyle(color: Colors.white),
+                              labelStyle: const TextStyle(color: Colors.black54),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.black54),
                             keyboardType: TextInputType.number,
                           ),
                         if (_heightUnit == 'Feet & Inches') ...[
@@ -211,12 +210,12 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                             controller: _heightFeetController,
                             decoration: InputDecoration(
                               labelText: 'Height (feet)',
-                              labelStyle: const TextStyle(color: Colors.white),
+                              labelStyle: const TextStyle(color: Colors.black54),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.black54),
                             keyboardType: TextInputType.number,
                           ),
                           const SizedBox(height: 10),
@@ -224,12 +223,12 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                             controller: _heightInchesController,
                             decoration: InputDecoration(
                               labelText: 'Height (inches)',
-                              labelStyle: const TextStyle(color: Colors.white),
+                              labelStyle: const TextStyle(color: Colors.black54),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.black54),
                             keyboardType: TextInputType.number,
                           ),
                         ],
@@ -255,7 +254,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                                 style: const TextStyle(
                                   fontSize: 24,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                 ),
                               ),
                               const SizedBox(height: 10),
@@ -263,7 +262,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                                 'Category: $_bmiCategory',
                                 style: const TextStyle(
                                   fontSize: 16,
-                                  color: Colors.white70,
+                                  color: Colors.black87,
                                 ),
                               ),
                             ],

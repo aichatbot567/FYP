@@ -13,17 +13,51 @@ import 'chat/Group chat/group_creation.dart';
 import 'chat/controller/chat_controller.dart';
 import 'chat/controller/user_controller.dart';
 import 'chat/services/notification_service.dart';
+
+// Add this controller class for handling notification events before it's used
+class NotificationController {
+  /// Use this method to detect when a new notification or a schedule is created
+  @pragma('vm:entry-point')
+  static Future<void> onNotificationCreatedMethod(ReceivedNotification receivedNotification) async {
+    print('Notification created: ${receivedNotification.id}');
+  }
+
+  /// Use this method to detect every time that a new notification is displayed
+  @pragma('vm:entry-point')
+  static Future<void> onNotificationDisplayedMethod(ReceivedNotification receivedNotification) async {
+    print('Notification displayed: ${receivedNotification.id}');
+  }
+
+  /// Use this method to detect if the user dismissed a notification
+  @pragma('vm:entry-point')
+  static Future<void> onDismissActionReceivedMethod(ReceivedAction receivedAction) async {
+    print('Notification dismissed: ${receivedAction.id}');
+  }
+
+  /// Use this method to detect when the user taps on a notification or action button
+  @pragma('vm:entry-point')
+  static Future<void> onActionReceivedMethod(ReceivedAction receivedAction) async {
+    print('Notification action received: ${receivedAction.id}');
+
+    // Navigate to specific page or perform actions based on the notification
+    if(receivedAction.channelKey == 'medicine_channel_id') {
+      // Handle medicine reminder notification taps
+      // Example: Get.to(() => MedicineDetailsPage(medicineId: receivedAction.payload?['medicineId']));
+    }
+  }
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Initialize Supabase
   await Supabase.initialize(
-    url:keys().url,
+    url: keys().url,
     anonKey: keys().anonKey,
   );
   await GroupNotificationService().init();
 
-  // Initialize notifications with proper channel setup
+  // Initialize notifications
   try {
     await AwesomeNotifications().initialize(
         null,
@@ -37,7 +71,7 @@ void main() async {
             ledColor: Colors.blue,
             importance: NotificationImportance.High,
             playSound: true,
-            soundSource: 'resource://raw/notification_sound', // Without .mp3 extension
+            soundSource: 'resource://raw/notification_sound',
             enableVibration: true,
             enableLights: true,
           )
@@ -50,13 +84,11 @@ void main() async {
         ],
         debug: true
     );
-    // Request notification permissions
     await AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
       if (!isAllowed) {
         AwesomeNotifications().requestPermissionToSendNotifications();
       }
     });
-    print("Notifications initialized successfully");
   } catch (e) {
     print("Error initializing notifications: $e");
   }
@@ -65,8 +97,8 @@ void main() async {
   Get.put(UserController());
   Get.put(ChatController());
   Get.put(NotificationService());
-  Get.put(GroupNotificationService().init());
-  runApp(MyApp());
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -90,6 +122,21 @@ class _MyAppState extends State<MyApp> {
         onNotificationDisplayedMethod: NotificationController.onNotificationDisplayedMethod,
         onDismissActionReceivedMethod: NotificationController.onDismissActionReceivedMethod
     );
+
+    // Handle deep links when app is launched from terminated state
+    supabase.auth.onAuthStateChange.listen((data) {
+      final session = data.session;
+      if (session != null && mounted) {
+        _handlePasswordResetDeepLink(session.accessToken);
+      }
+    });
+  }
+
+  void _handlePasswordResetDeepLink(String? accessToken) {
+    if (accessToken == null || !accessToken.contains('type=recovery')) return;
+
+    // Navigate to reset password page
+    Get.toNamed('/reset-password', arguments: {'access_token': accessToken});
   }
 
   @override
@@ -103,44 +150,14 @@ class _MyAppState extends State<MyApp> {
       ),
       initialRoute: '/splash_screen',
       getPages: [
-        GetPage(name: '/splash_screen', page:()=> SplashScreen()),
-        GetPage(name: '/login', page: () => LoginPage()),
-        GetPage(name: '/signup', page: () => SignupPage()),
-        GetPage(name: '/forgot-password', page: () => ForgotPasswordPage()),
-        GetPage(name: '/home', page: () => NavigationBarAppBar()),
-        GetPage(name: '/group-creation', page: () => GroupCreationScreen()),
+        GetPage(name: '/splash_screen', page: () => const SplashScreen()),
+        GetPage(name: '/login', page: () => const LoginPage()),
+        GetPage(name: '/signup', page: () => const SignupPage()),
+        GetPage(name: '/forgot-password', page: () => const ForgotPasswordPage()),
+        GetPage(name: '/home', page: () => const NavigationBarAppBar()),
+        GetPage(name: '/group-creation', page: () => const GroupCreationScreen()),
       ],
+      // Handle deep links when app is in background/foreground
     );
-  }
-}
-// Add this controller class for handling notification events
-class NotificationController {
-  /// Use this method to detect when a new notification or a schedule is created
-  @pragma('vm:entry-point')
-  static Future<void> onNotificationCreatedMethod(ReceivedNotification receivedNotification) async {
-    print('Notification created: ${receivedNotification.id}');
-  }
-
-  /// Use this method to detect every time that a new notification is displayed
-  @pragma('vm:entry-point')
-  static Future<void> onNotificationDisplayedMethod(ReceivedNotification receivedNotification) async {
-    print('Notification displayed: ${receivedNotification.id}');
-  }
-
-  /// Use this method to detect if the user dismissed a notification
-  @pragma('vm:entry-point')
-  static Future<void> onDismissActionReceivedMethod(ReceivedAction receivedAction) async {
-    print('Notification dismissed: ${receivedAction.id}');
-  }
-  /// Use this method to detect when the user taps on a notification or action button
-  @pragma('vm:entry-point')
-  static Future<void> onActionReceivedMethod(ReceivedAction receivedAction) async {
-    print('Notification action received: ${receivedAction.id}');
-
-    // Navigate to specific page or perform actions based on the notification
-    if(receivedAction.channelKey == 'medicine_channel_id') {
-      // Handle medicine reminder notification taps
-      // Example: Get.to(() => MedicineDetailsPage(medicineId: receivedAction.payload?['medicineId']));
-    }
   }
 }

@@ -80,7 +80,6 @@ class _StaticBarcodeScanState extends State<StaticBarcodeScan> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: const Text("Scan Medicine"),
         backgroundColor: const Color(0xFF4BA1AE),
         centerTitle: true,

@@ -7,6 +7,9 @@ class OptionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF4BA1AE),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(

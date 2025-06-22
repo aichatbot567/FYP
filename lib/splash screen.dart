@@ -13,8 +13,7 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
   late Animation<double> _opacityAnimation;
@@ -64,13 +63,12 @@ class _SplashScreenState extends State<SplashScreen>
       final isLoggedIn = session != null;
 
       if (isLoggedIn) {
-        Get.offAll(() => NavigationBarAppBar());
+        Get.offAll(() => const NavigationBarAppBar());
       } else {
-        Get.offAll(() => LoginPage());
+        Get.offAll(() => const LoginPage());
       }
     } catch (e) {
-      print("Auth check error: $e");
-      Get.offAll(() => LoginPage());
+      Get.offAll(() => const LoginPage());
     }
   }
 
@@ -84,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
               Color(0xFF4BA1AE),
@@ -119,47 +117,48 @@ class _SplashScreenState extends State<SplashScreen>
                       );
                     },
                   ),
-                  // Animated ArcText
-                  AnimatedBuilder(
-                    animation: _animation,
-                    builder: (context, child) {
-                      return Transform.scale(
-                        scale: _animation.value,
-                        child: Opacity(
-                          opacity: _opacityAnimation.value,
-                          child: Positioned(
-                            top: 50,
+                  // Positioned ArcText
+                  Positioned(
+                    top: 70,
+                    child: AnimatedBuilder(
+                      animation: _animation,
+                      builder: (context, child) {
+                        return Transform.scale(
+                          scale: _animation.value,
+                          child: Opacity(
+                            opacity: _opacityAnimation.value,
                             child: ArcText(
                               radius: 90,
                               text: 'Digital Healthcare Platform',
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                                 shadows: [
-                                Shadow(
-                                blurRadius: 6,
-                                color: Colors.black,
-                                offset: Offset(-3, -4),
-                                )],
+                                  Shadow(
+                                    blurRadius: 6,
+                                    color: Colors.black,
+                                    offset: Offset(-3, -4),
+                                  ),
+                                ],
                               ),
                               startAngle: 5,
                             ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
               const SizedBox(height: 20),
-              Container(
+              const SizedBox(
                 width: 200,
                 child: LinearProgressIndicator(
                   color: Colors.yellow,
                   minHeight: 3,
                   backgroundColor: Colors.black,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
                 ),
               ),
             ],

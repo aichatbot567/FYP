@@ -198,13 +198,13 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         backgroundColor: Color(0xFF4BA1AE),
         elevation: 0,
         titleTextStyle: const TextStyle(
-          color: Colors.white,
+          color: Colors.black87,
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
         actions: [
           IconButton(
-            icon: Icon(_isSearching ? Icons.close : Icons.search, color: Colors.white),
+            icon: Icon(_isSearching ? Icons.close : Icons.search, color: Colors.black87),
             onPressed: () {
               setState(() {
                 _isSearching = !_isSearching;

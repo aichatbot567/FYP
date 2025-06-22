@@ -87,7 +87,6 @@ class _FirstAidHomeState extends State<FirstAidHome> {
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
-        automaticallyImplyLeading: false,
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,

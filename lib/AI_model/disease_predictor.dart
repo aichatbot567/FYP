@@ -11,13 +11,11 @@ class DiseasePredictorScreen extends StatefulWidget {
   @override
   _DiseasePredictorScreenState createState() => _DiseasePredictorScreenState();
 }
-
 class _DiseasePredictorScreenState extends State<DiseasePredictorScreen> {
   bool _isLoading = true;
   String? _error;
   List<Map<String, dynamic>>? _predictions;
   List<String> _selectedSymptoms = [];
-
   Interpreter? _interpreter;
   List<String>? _symptoms;
   List<String>? _diseases;
@@ -219,11 +217,11 @@ class _DiseasePredictorScreenState extends State<DiseasePredictorScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Disease Prediction',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: const Color(0xFF4BA1AE),
         elevation: 4,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.black),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
@@ -254,7 +252,7 @@ class _DiseasePredictorScreenState extends State<DiseasePredictorScreen> {
           ),
         ),
         child: _isLoading
-            ? const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.white)))
+            ? const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.black)))
             : _error != null
             ? Center(
           child: Padding(
@@ -378,13 +376,13 @@ class _SymptomSelectorState extends State<SymptomSelector> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text('Select Symptoms',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black)),
           const SizedBox(height: 16),
           TextField(
             controller: _controller,
             decoration: InputDecoration(
               hintText: 'Type a symptom (e.g., headache)',
-              hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+              hintStyle: TextStyle(color: Colors.black54),
               filled: true,
               fillColor: Colors.white.withOpacity(0.2),
               border: OutlineInputBorder(
@@ -392,7 +390,7 @@ class _SymptomSelectorState extends State<SymptomSelector> {
                 borderSide: BorderSide.none,
               ),
             ),
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.black54),
             onChanged: (value) {
               setState(() {
                 _suggestion = widget.onCorrectSpelling(value);
@@ -418,12 +416,12 @@ class _SymptomSelectorState extends State<SymptomSelector> {
           const SizedBox(height: 16),
           DropdownButton<String>(
             isExpanded: true,
-            hint: const Text('Or select a symptom', style: TextStyle(color: Colors.white)),
+            hint: const Text('Or select a symptom', style: TextStyle(color: Colors.black)),
             value: _selectedSymptom,
             dropdownColor: const Color(0xEF095961),
-            icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
+            icon: const Icon(Icons.arrow_drop_down, color: Colors.black),
             iconSize: 24,
-            style: const TextStyle(color: Colors.white, fontSize: 16),
+            style: const TextStyle(color: Colors.black87, fontSize: 16),
             underline: Container(height: 0),
             onChanged: (String? newValue) {
               setState(() {
@@ -444,7 +442,7 @@ class _SymptomSelectorState extends State<SymptomSelector> {
           const SizedBox(height: 16),
           if (widget.selectedSymptoms.isNotEmpty) ...[
             const Text('Selected Symptoms:',
-                style: TextStyle(color: Colors.white, fontSize: 14)),
+                style: TextStyle(color: Colors.black, fontSize: 14)),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
@@ -453,8 +451,8 @@ class _SymptomSelectorState extends State<SymptomSelector> {
                 return Chip(
                   label: Text(symptom),
                   backgroundColor: const Color(0xFF4BA1AE),
-                  labelStyle: const TextStyle(color: Colors.white),
-                  deleteIcon: const Icon(Icons.close, size: 18, color: Colors.white),
+                  labelStyle: const TextStyle(color: Colors.black54),
+                  deleteIcon: const Icon(Icons.close, size: 18, color: Colors.black54),
                   onDeleted: () {
                     widget.onSymptomsChanged(
                         widget.selectedSymptoms.where((item) => item != symptom).toList());
@@ -472,7 +470,7 @@ class _SymptomSelectorState extends State<SymptomSelector> {
                   : () => widget.onPredictPressed(widget.selectedSymptoms),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF4BA1AE),
-                foregroundColor: Colors.white,
+                foregroundColor: Colors.black,
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 elevation: 3,

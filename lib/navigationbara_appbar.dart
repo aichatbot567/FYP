@@ -1,9 +1,7 @@
 import 'package:digitalhealthcareplatform/Search/search_option.dart';
 import 'package:digitalhealthcareplatform/homepage.dart';
 import 'package:digitalhealthcareplatform/profilescreen.dart';
-import 'package:digitalhealthcareplatform/services.dart';
 import 'package:flutter/material.dart';
-import 'Search/search_doctors.dart';
 import 'chat/views/chat_screen.dart';
 
 class NavigationBarAppBar extends StatefulWidget {

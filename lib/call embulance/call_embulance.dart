@@ -146,35 +146,35 @@ class _Near_hosiptalState extends State<Near_hosiptal> {
       Hospital(
         id: '1',
         name: 'Shifa International Hospital',
-        phoneNumber: '+92-51-846-3000',
+        phoneNumber: '+923019806628',
         latitude: 33.6781,
         longitude: 73.0682,
       ),
       Hospital(
         id: '2',
         name: 'Pakistan Institute of Medical Sciences (PIMS)',
-        phoneNumber: '+92-51-926-1170',
+        phoneNumber: '+923019806628',
         latitude: 33.6996,
         longitude: 73.0545,
       ),
       Hospital(
         id: '3',
         name: 'Capital Hospital (CDA Hospital)',
-        phoneNumber: '+92-51-922-1334',
+        phoneNumber: '+923019806628',
         latitude: 33.7141,
         longitude: 73.0676,
       ),
       Hospital(
         id: '4',
         name: 'Maroof International Hospital',
-        phoneNumber: '+92-51-111-644-911',
+        phoneNumber: '+923019806628',
         latitude: 33.6978,
         longitude: 73.0293,
       ),
       Hospital(
         id: '5',
         name: 'Advanced International Hospital',
-        phoneNumber: '+92-51-222-2000',
+        phoneNumber: '+923019806628',
         latitude: 33.6844,
         longitude: 73.0479,
       ),
@@ -245,36 +245,50 @@ class _Near_hosiptalState extends State<Near_hosiptal> {
   }
 
   Future<void> _callHospital(String phoneNumber) async {
+    if (_currentPosition == null) {
+      _showError('Current location not available');
+      return;
+    }
+
     try {
-      // Remove all non-numeric characters
+      // Remove all non-numeric characters from phone number
       final cleanedNumber = phoneNumber.replaceAll(RegExp(r'[^0-9]'), '');
 
-      // Use launchUrl with explicit mode
-      final Uri phoneUri = Uri.parse('tel:$cleanedNumber');
+      // Create a Google Maps link with the user's current location
+      final locationUrl = 'https://www.google.com/maps/search/?api=1&query=${_currentPosition!.latitude},${_currentPosition!.longitude}';
 
-      // Launch with external application mode
+      // Create the message to send
+      final message = Uri.encodeComponent(
+        'Emergency: Please send an ambulance to my location: $locationUrl',
+      );
+
+      // Create WhatsApp URL
+      final Uri whatsappUri = Uri.parse('https://wa.me/$cleanedNumber?text=$message');
+
+      // Launch WhatsApp with the pre-filled message
       await launchUrl(
-        phoneUri,
+        whatsappUri,
         mode: LaunchMode.externalApplication,
       );
     } catch (e) {
-      _showError('Failed to call: $e');
+      _showError('Failed to open WhatsApp: $e');
     }
   }
-
   void _showError(String message) {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF4BA1AE),
+
+      ),
       body: Column(
         children: [
-          // Map always displays first
           Expanded(
             child: Stack(
               children: [
@@ -393,8 +407,8 @@ class _Near_hosiptalState extends State<Near_hosiptal> {
                       ),
                       ElevatedButton.icon(
                         onPressed: () => _callHospital(_nearestHospital!.phoneNumber),
-                        icon: const Icon(Icons.phone),
-                        label: Text(_nearestHospital!.phoneNumber),
+                        icon: const Icon(Icons.message),
+                        label: const Text('Contact Ambulance'),
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.green,

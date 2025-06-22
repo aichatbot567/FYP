@@ -14,80 +14,131 @@ class _ChatbotState extends State<Chatbot> {
   final TextEditingController _textController = TextEditingController();
   final List<ChatMessage> _messages = [];
   bool _isLoading = false;
-
-  late final GenerativeModel _model;
-  late final GenerativeModel _healthCheckModel;
-  late final ChatSession _chat;
+  bool _isModelInitialized = false;
+  GenerativeModel? _model;
+  ChatSession? _chat;
 
   @override
   void initState() {
     super.initState();
-    _initializeModel();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    _initializeModel().then((_) {
       if (widget.initialQuery != null && widget.initialQuery!.isNotEmpty) {
         _handleSubmitted(widget.initialQuery!);
       }
     });
   }
 
-  void _initializeModel() {
-    _model = GenerativeModel(
-      model: 'gemini-1.5-flash',
-      apiKey: 'AIzaSyCIim6KXFVA9X3neJopSkgh0QRmwt4NQ7k', // TODO: Securely store API key
-    );
+  Future<void> _initializeModel() async {
+    try {
+      const apiKey = "AIzaSyCuUj8UFsH6GsWXxPcxzO4Koy8XUWjfjtA";
+      if (apiKey.isEmpty) {
+        throw Exception('Please set your Google AI API key');
+      }
 
-    _healthCheckModel = GenerativeModel(
-      model: 'gemini-1.5-flash',
-      apiKey: 'AIzaSyCIim6KXFVA9X3neJopSkgh0QRmwt4NQ7k',
-    );
+      _model = GenerativeModel(
+        model: 'gemini-2.0-flash', // Free tier model
+        apiKey: apiKey,
+        generationConfig: GenerationConfig(
+          maxOutputTokens: 1000, // Reduced to stay within limits
+          temperature: 0.7,
+          topP: 0.9,
+        ),
+        safetySettings: [
+          SafetySetting(HarmCategory.harassment, HarmBlockThreshold.medium),
+          SafetySetting(HarmCategory.hateSpeech, HarmBlockThreshold.medium),
+          SafetySetting(HarmCategory.sexuallyExplicit, HarmBlockThreshold.medium),
+          SafetySetting(HarmCategory.dangerousContent, HarmBlockThreshold.medium),
+        ],
+      );
 
-    _chat = _model.startChat();
+      // Test the API key with a simple request
+      final testResponse = await _model!.generateContent([
+        Content.text("Hello")
+      ]);
+
+      if (testResponse.text == null) {
+        throw Exception('API key test failed - no response received');
+      }
+
+      _chat = _model?.startChat(
+        history: [
+          Content.text(
+              "You are a helpful health assistant. Specialize in medical, wellness, and health-related topics. "
+                  "Be concise but accurate. For non-health questions, politely redirect to health topics. "
+                  "Always remind users to consult healthcare professionals for serious medical concerns."),
+        ],
+      );
+
+      setState(() {
+        _isModelInitialized = true;
+      });
+    } catch (e) {
+      debugPrint('Model initialization error: $e');
+      setState(() {
+        _messages.insert(
+          0,
+          ChatMessage(
+            text: "Failed to initialize AI service. Please check your API key and internet connection.",
+            isUser: false,
+          ),
+        );
+      });
+    }
   }
 
-  Future<bool> _shouldRespond(String text) async {
-    try {
-      final prompt = """
-      Analyze the following user input and determine if:
-      1. It's a general greeting (like hello, hi, etc.) - respond with "greeting"
-      2. It's related to health, medical, or wellness topics - respond with "health"
-      3. Otherwise - respond with "other"
+  Future<bool> _isHealthRelated(String text) async {
+    if (!_isModelInitialized || _model == null) return false;
 
-      Input: "$text"
+    try {
+      // Create a separate model instance for content checking to avoid interfering with chat
+      final checkModel = GenerativeModel(
+        model: 'gemini-1.5-flash', // Free tier model
+        apiKey: "AIzaSyCzoGa35PSsLQp39BjNMUfQhnuM23Uwfm8", // Your existing API key
+      );
+
+      final prompt = """
+      Analyze if this input is health-related (medical, wellness, fitness, nutrition, mental health) or a general greeting.
+      Respond ONLY with "health", "greeting", or "other":
+      
+      "$text"
       """;
 
-      final response = await _healthCheckModel.generateContent([
-        Content.text(prompt),
-      ]);
-      final responseText = response.text?.toLowerCase() ?? 'other';
+      final response = await checkModel.generateContent([Content.text(prompt)]);
+      final responseText = response.text?.toLowerCase().trim() ?? 'other';
 
-      return responseText.contains('greeting') || responseText.contains('health');
+      return responseText.contains('health') || responseText.contains('greeting');
     } catch (e) {
-      print('Content check error: $e');
-      return false;
+      debugPrint('Content check error: $e');
+      // If content check fails, allow the message through to avoid blocking legitimate health queries
+      return true;
     }
   }
 
   void _handleSubmitted(String text) async {
-    if (text.trim().isEmpty) return;
+    final trimmedText = text.trim();
+    if (trimmedText.isEmpty) return;
+
+    if (!_isModelInitialized || _chat == null) {
+      _showError("AI service is not ready. Please wait or restart the app.");
+      return;
+    }
 
     _textController.clear();
-
     setState(() {
-      _messages.insert(0, ChatMessage(text: text, isUser: true));
+      _messages.insert(0, ChatMessage(text: trimmedText, isUser: true));
       _isLoading = true;
     });
 
     try {
-      final shouldRespond = await _shouldRespond(text);
+      final isRelevant = await _isHealthRelated(trimmedText);
 
-      if (!shouldRespond) {
+      if (!isRelevant) {
         setState(() {
           _messages.insert(
             0,
             ChatMessage(
-              text:
-              "I specialize in health-related topics. Please ask me about health, medical, or wellness questions, or say hello!",
+              text: "I specialize in health topics. Ask me about nutrition, "
+                  "fitness, medical conditions, mental health, or general wellness advice!",
               isUser: false,
             ),
           );
@@ -96,119 +147,212 @@ class _ChatbotState extends State<Chatbot> {
         return;
       }
 
-      final response = await _chat.sendMessage(Content.text(text));
-      final responseText = response.text ?? 'No response from AI';
+      final response = await _chat!.sendMessage(Content.text(trimmedText));
+      final responseText = response.text ?? 'Sorry, I couldn\'t process that. Please try rephrasing your question.';
 
       setState(() {
         _messages.insert(0, ChatMessage(text: responseText, isUser: false));
         _isLoading = false;
       });
     } catch (e) {
+      debugPrint('Error in _handleSubmitted: $e');
+      String errorMessage = "I'm having trouble processing your request. ";
+
+      if (e.toString().contains('API_KEY')) {
+        errorMessage += "Please check the API key configuration.";
+      } else if (e.toString().contains('quota') || e.toString().contains('limit')) {
+        errorMessage += "API quota exceeded. Please try again later.";
+      } else if (e.toString().contains('network') || e.toString().contains('connection')) {
+        errorMessage += "Please check your internet connection.";
+      } else {
+        errorMessage += "Please try again.";
+      }
+
       setState(() {
-        _messages.insert(0, ChatMessage(text: 'Error: $e', isUser: false));
+        _messages.insert(
+          0,
+          ChatMessage(
+            text: errorMessage,
+            isUser: false,
+          ),
+        );
         _isLoading = false;
       });
-
-      print('Error details: $e');
     }
+  }
+
+  void _showError(String message) {
+    setState(() {
+      _messages.insert(
+        0,
+        ChatMessage(
+          text: message,
+          isUser: false,
+        ),
+      );
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text('Health Chatbot'),
-        backgroundColor:Color(0xFF4BA1AE),
-        centerTitle: true,
-        elevation: 0,
-        titleTextStyle: const TextStyle(
-          color: Colors.black54,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),      ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF4BA1AE),
-              Color(0xFF73B5C1),
-              Color(0xFF82BDC8),
-              Color(0xFF92C6CF),
-            ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
+        title: const Text(
+          'Health Chatbot',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
           ),
         ),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
+        backgroundColor: const Color(0xFF4BA1AE),
+        centerTitle: true,
+        elevation: 2,
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFF4BA1AE),
+                    Color(0xFF73B5C1),
+                    Color(0xFF92C6CF),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: _messages.isEmpty
+                  ? _buildWelcomeMessage()
+                  : ListView.builder(
                 reverse: true,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 16,
+                ),
                 itemCount: _messages.length,
                 itemBuilder: (context, index) => _messages[index],
               ),
             ),
-            if (_isLoading)
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8),
-                child: CircularProgressIndicator(color: Colors.white),
-              ),
-            const Divider(height: 1, color: Colors.white54),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.9),
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.2),
-                      spreadRadius: 2,
-                      blurRadius: 3,
-                      offset: const Offset(0, 1),
+          ),
+          if (_isLoading)
+            Container(
+              color: Color(0xFF4BA1AE),
+              padding: const EdgeInsets.all(16.0),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(
+                    color: Color(0xFF43D7E8),
+                    strokeWidth: 2,
+                  ),
+                  SizedBox(width: 12),
+                  Text(
+                    "Thinking...",
+                    style: TextStyle(
+                      color: Color(0xFF000000),
+                      fontWeight: FontWeight.w500,
                     ),
-                  ],
-                ),
-                child: _buildTextComposer(),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 10),
+          _buildInputArea(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWelcomeMessage() {
+    return const Center(
+      child: Padding(
+        padding: EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.medical_services,
+              size: 64,
+              color: Colors.white,
+            ),
+            SizedBox(height: 16),
+            Text(
+              "Welcome to Health Chatbot!",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 8),
+            Text(
+              "Ask me about nutrition, fitness, wellness, or any health-related questions.",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white70,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildTextComposer() {
-    return IconTheme(
-      data: const IconThemeData(color: Color(0xFF4BA1AE)),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+  Widget _buildInputArea() {
+    return Container(
+      padding: const EdgeInsets.all(16.0),
+      decoration: BoxDecoration(
+        color:Color(0xFF4BA1AE),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 4,
+            offset: const Offset(0, -2),
+          ),
+        ],
+      ),
+      child: SafeArea(
         child: Row(
           children: [
-            Flexible(
+            Expanded(
               child: TextField(
                 controller: _textController,
-                onSubmitted: _handleSubmitted,
-                decoration: const InputDecoration(
-                  hintText: 'Ask a health question or say hello...',
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 12.0,
-                    vertical: 12.0,
+                enabled: _isModelInitialized && !_isLoading,
+                maxLines: null,
+                keyboardType: TextInputType.multiline,
+                textCapitalization: TextCapitalization.sentences,
+                decoration: InputDecoration(
+                  hintText: _isModelInitialized
+                      ? 'Ask a health question...'
+                      : 'Initializing AI...',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(24),
+                    borderSide: BorderSide.none,
                   ),
-                  hintStyle: TextStyle(color: Colors.black54),
+                  filled: true,
+                  fillColor: Color(0xFF8ACCDA),
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 12,
+                  ),
                 ),
-                style: const TextStyle(color: Colors.black87),
+                onSubmitted: _handleSubmitted,
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 4.0),
+            const SizedBox(width: 12),
+            CircleAvatar(
+              radius: 24,
+              backgroundColor: _isModelInitialized && !_isLoading
+                  ? const Color(0xFF4BA1AE)
+                  : Colors.grey[400],
               child: IconButton(
-                icon: const Icon(Icons.send),
-                onPressed: () => _handleSubmitted(_textController.text),
+                icon: const Icon(Icons.send, color: Colors.white),
+                onPressed: _isModelInitialized && !_isLoading
+                    ? () => _handleSubmitted(_textController.text)
+                    : null,
               ),
             ),
           ],
@@ -233,57 +377,55 @@ class ChatMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 14.0),
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
-          isUser
-              ? Container()
-              : Container(
-            margin: const EdgeInsets.only(right: 16.0),
-            child: CircleAvatar(
-              backgroundColor: const Color(0xB6286E7A),
-              child: const Icon(Icons.medical_services, color: Colors.white),
-            ),
-          ),
-          Expanded(
+          Flexible(
             child: Column(
-              crossAxisAlignment:
-              isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+              crossAxisAlignment: isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
               children: [
-                Text(
-                  isUser ? 'You' : 'Health AI',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
+                CircleAvatar(
+                  radius: 16,
+                  backgroundColor: isUser ? const Color(0xFF4BA1AE) : const Color(0xFF286E7A),
+                  child: Icon(
+                    isUser ? Icons.person : Icons.medical_services,
+                    size: 16,
+                    color: Colors.white,
                   ),
                 ),
+                const SizedBox(height: 8),
                 Container(
-                  margin: const EdgeInsets.only(top: 5.0),
-                  padding: const EdgeInsets.all(10.0),
+                  constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   decoration: BoxDecoration(
-                    color: isUser
-                        ? Color(0x5AFFFFFF)
-                        : Color(0x90FFFFFF),
-                    borderRadius: BorderRadius.circular(8.0),
+                    color: isUser ? Colors.white.withOpacity(0.9) : Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: isUser ? const Radius.circular(18) : const Radius.circular(4),
+                      topRight: isUser ? const Radius.circular(4) : const Radius.circular(18),
+                      bottomLeft: const Radius.circular(18),
+                      bottomRight: const Radius.circular(18),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 4,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
                   ),
                   child: Text(
                     text,
-                    style: const TextStyle(color: Colors.black),
+                    style: const TextStyle(
+                      color: Colors.black87,
+                      fontSize: 15,
+                      height: 1.4,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          isUser
-              ? Container(
-            margin: const EdgeInsets.only(left: 16.0),
-            child: const CircleAvatar(
-              backgroundColor: Color(0xFF4BA1AE),
-              child: Icon(Icons.person, color: Colors.white),
-            ),
-          )
-              : Container(),
         ],
       ),
     );

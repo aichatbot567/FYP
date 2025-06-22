@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:ui';
 import 'package:digitalhealthcareplatform/Bmi_calculator.dart';
 import 'package:digitalhealthcareplatform/chatbot/chat%20bot.dart';
+import 'package:digitalhealthcareplatform/profilescreen.dart';
 import 'package:digitalhealthcareplatform/tip%20of%20the%20day.dart';
 import 'package:flutter/material.dart';
 import 'package:digitalhealthcareplatform/reminders/medican%20reminder.dart';
@@ -28,7 +29,6 @@ class _HomepageState extends State<Homepage> {
     super.initState();
     _loadImage(); // Load the image when the widget is initialized
   }
-  // Function to load image from SharedPreferences
   Future<void> _loadImage() async {
     final prefs = await SharedPreferences.getInstance();
     final base64Image = prefs.getString('profile_image');
@@ -195,13 +195,22 @@ class _HomepageState extends State<Homepage> {
                             ),
                           ],
                         ),
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundImage: _profileImage,
-                          backgroundColor: _profileImage == null ? Colors.grey[200] : null,
-                          child: _profileImage == null
-                              ? const Icon(Icons.person, color: Colors.grey)
-                              : null,
+                        InkWell(
+                          child: CircleAvatar(
+                            radius: 20,
+                            backgroundImage: _profileImage,
+                            backgroundColor: _profileImage == null ? Colors.grey[200] : null,
+                            child: _profileImage == null
+                                ? const Icon(Icons.person, color: Colors.grey)
+                                : null,
+                          ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ProfileScreen()),
+                              );
+                            }
+
                         ),
                       ],
                     );

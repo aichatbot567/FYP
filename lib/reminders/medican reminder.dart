@@ -140,7 +140,6 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor:Color(0xFF4BA1AE),
-        automaticallyImplyLeading: false,
           title: const Text('Medicine Reminder'),
           centerTitle: true,
           elevation: 0,
